@@ -1,3 +1,6 @@
+require 'faye'
+require 'sinatra'
+
 require "magic_mirror/version"
 require "magic_mirror/mirror"
 
