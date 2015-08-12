@@ -1,5 +1,12 @@
 require "magic_mirror/version"
+require "magic_mirror/mirror"
 
 module MagicMirror
-  # Your code goes here...
+
+  def self.new
+    Mirror.new
+  end
+
+
+
 end
