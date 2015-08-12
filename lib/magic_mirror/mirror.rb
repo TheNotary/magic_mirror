@@ -1,4 +1,3 @@
-require 'magic_mirror/sinatra_silver'
 module MagicMirror
   class Mirror
     def initialize

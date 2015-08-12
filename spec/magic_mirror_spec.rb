@@ -5,7 +5,9 @@ describe MagicMirror do
     expect(MagicMirror::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it 'exposes a binding' do
+    m = MagicMirror.new
+    m.init_servers
+    binding.pry
   end
 end
