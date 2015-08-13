@@ -6,8 +6,10 @@ module SinatraSilver
     # set :app_file, MagicMirror.sinatra_root
     # set :views, MagicMirror.sinatra_root
     set :views, Proc.new { File.join(MagicMirror.sinatra_root, "lib", "views") }
+    #set :public_folder, Proc.new { File.join(MagicMirror.sinatra_root, "lib", "views") }
 
     get '/' do
+      @command_cache = MagicMirror.command_cache.to_json
       erb :index # 'Hello world!'
     end
   end

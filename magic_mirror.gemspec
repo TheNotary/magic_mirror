@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "sinatra", "~> 1.4"
   spec.add_dependency "faye", "~> 1.1"
+  spec.add_dependency "tilt"
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"

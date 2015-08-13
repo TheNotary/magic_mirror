@@ -1,11 +1,18 @@
 ** 0.0.x **
   TODO:  List off what features you'll be including at some point in the
-future.  
+future.
 
 
 Currently:
 
-  - Make 
+  - Setup command_cache
+    > Make all canvas commands append to MagicMirror's @command_cache
+
+  - Setup javascript for drawing to canvas
+    > So with using tk in ruby, ruby calls to the TK library, and TK replies with... IDs of objects created...
+    > So when I send commands to javascript... do I need to grab the responses???
+    > ughh... I should look how to draw lines with canvas before proceeding
+  - Think of other popular uses for rendering...
 
 
 Finished:
@@ -14,4 +21,3 @@ Finished:
 
 ** 0.0.1 **
   TODO:  List off what features you'll be including in the first release
-
