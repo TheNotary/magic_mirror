@@ -21,9 +21,6 @@ module MagicMirror
     end
 
     def start_faye
-      # binding.pry
-
-
 
       Thread.new {
         bayeux = Faye::RackAdapter.new(:mount => '/faye', :timeout => 25)
@@ -32,7 +29,6 @@ module MagicMirror
       }
 
       #wait_until_faye_is_up
-
     end
 
     def get_faye_app
@@ -41,6 +37,7 @@ module MagicMirror
 
     # sends messages through faye server to web interface
     def speak_into(msg)
+      require 'net/http'
       channel = "/0001"
 
       message = {:channel => channel, :data => msg}
@@ -48,6 +45,7 @@ module MagicMirror
       begin
         Net::HTTP.post_form(uri, :message => message.to_json)
       rescue
+        puts "failed to send message to faye server and thus webclient"
       end
 
     end
@@ -61,7 +59,6 @@ module MagicMirror
         rescue
 
         end
-        #binding.pry
         sleep 1
         break if response and response.code == 400 and response.body == "Bad request"
       end

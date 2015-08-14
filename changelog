@@ -5,8 +5,14 @@ future.
   - Think of other popular uses for rendering...
   - secure by making servers listen only on localhost
 
+  - did I kill the irb/ pry checks in trtl?
+  - Write wrapper for TkcOval, btw...
+
 Currently:
 
+  - When booting Trtl... faye starts, but the server won't send messages to Faye
+    > In what manor is the http post failing?
+      * Needed to require 'net/http'
 
 Finished:
 
