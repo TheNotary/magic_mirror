@@ -2,6 +2,13 @@
   TODO:  List off what features you'll be including at some point in the
 future.
 
+  - How do you tell the host gem to just 'listen for commands' and idle there?
+    (so the reverse usage of trtl)
+    possible do a .join() on the sinatra thread?
+
+  - limitation:  Can only have one rendering display at a time *per computer*
+      > Solution: Clean up the output and make ports random
+
   - Bug:  If faye server goes offline for a second, and misses commands, then comes back online,
     the command_cache variable will be out of sync with that of the server
       > Solutions:  Javascript Function periodically checks in to see the
@@ -18,6 +25,7 @@ future.
 
 Currently:
 
+  - BUG:  examples won't run
 
 
 Finished:

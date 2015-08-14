@@ -7,7 +7,7 @@ describe MagicMirror do
 
   it 'exposes a binding' do
     m = MagicMirror.new
-    m.init_servers
+    m.init_servers!
     binding.pry
   end
 end

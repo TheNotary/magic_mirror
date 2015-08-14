@@ -7,6 +7,12 @@ module SinatraSilver
     # set :views, MagicMirror.sinatra_root
     set :views, Proc.new { File.join(MagicMirror.sinatra_root, "lib", "views") }
     #set :public_folder, Proc.new { File.join(MagicMirror.sinatra_root, "lib", "views") }
+    #set :logging, false
+    set :logging, false
+
+    configure do
+      disable :logging
+    end
 
     get '/' do
       @command_cache = MagicMirror.command_cache.to_json
