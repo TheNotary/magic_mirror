@@ -7,5 +7,10 @@ module MagicMirror
       super
     end
 
+    def reset
+      self.clear
+      MagicMirror.mirror.speak_into("MagicMirror.clearCommandCache();")
+    end
+
   end
 end
