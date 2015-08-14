@@ -22,10 +22,14 @@ Currently:
 
 Finished:
 
-- Minimizing magic_mirror commands needed on the host gem
+** 0.1.0 **
 
+- Changed API to Minimizing magic_mirror commands needed on the host gem
 
-** 0.0.1 **
+** 0.0.2 **
   - got websockets online
   - Setup command_cache
   - Setup javascript for drawing to canvas
+
+** 0.0.1 **
+  - Release failed because the Trtl was missing dependencies
