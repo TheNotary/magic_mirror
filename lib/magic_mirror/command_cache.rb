@@ -6,5 +6,6 @@ module MagicMirror
       MagicMirror.mirror.speak_into(value)
       super
     end
+
   end
 end

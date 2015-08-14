@@ -2,20 +2,27 @@
   TODO:  List off what features you'll be including at some point in the
 future.
 
+  - Bug:  If faye server goes offline for a second, and misses commands, then comes back online,
+    the command_cache variable will be out of sync with that of the server
+      > Solutions:  Javascript Function periodically checks in to see the
+        md5 checksum of server's command_cache and if the browser's is out of date
+        it performs a reset
+
   - Think of other popular uses for rendering...
   - secure by making servers listen only on localhost
 
-  - did I kill the irb/ pry checks in trtl?
+  - Hide the STDOUT from starting the servers and print the
+    address of the listening http server in a pretty manor that links
+
   - Write wrapper for TkcOval, btw...
 
 Currently:
 
-  - When booting Trtl... faye starts, but the server won't send messages to Faye
-    > In what manor is the http post failing?
-      * Needed to require 'net/http'
+
 
 Finished:
 
+- Minimizing magic_mirror commands needed on the host gem
 
 
 ** 0.0.1 **

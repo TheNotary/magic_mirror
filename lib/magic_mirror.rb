@@ -14,9 +14,12 @@ module MagicMirror
   @@mirror = nil
   @@command_cache = CommandCache.new # unless @@command_cache
 
-  def self.new
-    @sinatra_root = File.expand_path('../..', __FILE__) if sinatra_root.nil?
-    @@mirror = @@mirror || Mirror.new
+  def self.new(options = {})
+    return @@mirror unless @@mirror.nil?
+    @sinatra_root = options[:sinatra_root] ? options[:sinatra_root] : File.expand_path('../..', __FILE__)
+    @@mirror = Mirror.new
+    @@mirror.init_servers! if options[:init_servers]
+    @@mirror
   end
 
   def self.mirror
