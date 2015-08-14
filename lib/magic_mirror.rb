@@ -16,7 +16,7 @@ module MagicMirror
 
   def self.new
     @sinatra_root = File.expand_path('../..', __FILE__) if sinatra_root.nil?
-    @@mirror = Mirror.new
+    @@mirror = @@mirror || Mirror.new
   end
 
   def self.mirror

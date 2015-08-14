@@ -5,13 +5,13 @@ module MagicMirror
 
     end
 
-    def init_servers
+    def init_servers!
       threads = []
       # start sinatra
       threads << start_sinatra
       threads << start_faye
 
-      threads
+      self
     end
 
     def start_sinatra
