@@ -2,6 +2,8 @@
   TODO:  List off what features you'll be including at some point in the
 future.
 
+	- Test against port in use problem.
+
   - How do you tell the host gem to just 'listen for commands' and idle there?
     (so the reverse usage of trtl)
     possible do a .join() on the sinatra thread?
@@ -25,14 +27,19 @@ future.
 
 Currently:
 
-  - BUG:  examples won't run
 
 
 Finished:
 
+** 0.1.1 **
+
+  - Added command_cache#reset
+	- Silenced booting of servers and added own boot message
+
+
 ** 0.1.0 **
 
-- Changed API to Minimizing magic_mirror commands needed on the host gem
+	- Changed API to Minimizing magic_mirror commands needed on the host gem
 
 ** 0.0.2 **
   - got websockets online
