@@ -5,8 +5,14 @@ future.
 	- Test against port in use problem.
 
   - How do you tell the host gem to just 'listen for commands' and idle there?
-    (so the reverse usage of trtl)
-    possible do a .join() on the sinatra thread?
+    > Call @magic_mirror.gaze_into to start event machine,
+      create a defered faye client,
+      make a subscription with said client
+      then block with EM.run
+
+      When a message is published to the subscribed channel, ruby can
+      respond accordingly, with full access to the gem and ruby landscape...
+      but ppl shouldn't directly eval the strings coming in over httpPost...
 
   - limitation:  Can only have one rendering display at a time *per computer*
       > Solution: Clean up the output and make ports random
@@ -20,14 +26,25 @@ future.
   - Think of other popular uses for rendering...
   - secure by making servers listen only on localhost
 
-  - Hide the STDOUT from starting the servers and print the
-    address of the listening http server in a pretty manor that links
 
-  - Write wrapper for TkcOval, btw...
 
 Currently:
 
+  - The tree example takes forever to draw
+    > Cache commands before sending through websockets:
+      cache websockets commands and wait 0.1 seconds between each
+      message sent...
+      ... it's also just a hell of a lot of data...
 
+    > Compress the command_cache: if the commands can be condensed so they
+      take up fewer characters, performance will improve dramatically.
+      *
+      *
+
+    > Dynamically build the tree function in javascript and reduce the command
+      to 1 function definition plus an invocation...
+
+    > What if command_cache SVG data instead of function calls?
 
 Finished:
 

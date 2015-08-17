@@ -9,6 +9,7 @@ module SinatraSilver
     #set :public_folder, Proc.new { File.join(MagicMirror.sinatra_root, "lib", "views") }
     #set :logging, false
     set :logging, false
+    set :bind, '127.0.0.1'
 
     configure do
       disable :logging

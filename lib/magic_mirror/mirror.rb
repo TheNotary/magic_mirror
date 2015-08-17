@@ -79,12 +79,13 @@ module MagicMirror
       require 'net/http'
       while(true) do
         begin
-          uri = URI.parse("http://localhost:#{FAYE_PORT}/")
-          response = Net::HTTP.get_response(uri)
+          message = {:channel => "/0001", :data => "booted"}
+          uri = URI.parse("http://localhost:#{FAYE_PORT}/faye")
+          response = Net::HTTP.post_form(uri, :message => message.to_json)
         rescue
-
         end
-        break if response and response.code == "404" and response.body == "Sure you're not looking for /faye ?"
+
+        break if response and response.code == "200" and response.body == "[{\"channel\":\"/0001\",\"successful\":true}]"
         sleep 0.1
       end
     end
