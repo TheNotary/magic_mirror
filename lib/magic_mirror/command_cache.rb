@@ -13,15 +13,22 @@ module MagicMirror
       self
     end
 
-
+    # what if I cached this value?...
     def to_embedded_javascript
       string = ""
 
       string += "<script>"
-      string += "window.command_cache = [];"
 
+      time_offset = 40
       self.each_slice(100) do |a|
+        string += "setTimeout(function(){"
         string += "z(#{a.to_json});"
+        if time_offset == 40
+          string += "}, #{0});"
+          time_offset+=5
+        else
+          string += "}, #{time_offset+=5});"
+        end
       end
 
       string += "</script>"

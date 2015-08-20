@@ -17,12 +17,18 @@ module SinatraSilver
 
     get '/' do
       @command_cache = MagicMirror.command_cache.to_json
+      @command_cache_length = MagicMirror.command_cache.length
       @command_cache_fast_evaluator = MagicMirror.command_cache.to_embedded_javascript
       erb :index # 'Hello world!'
     end
 
     get '/webworker.js' do
       erb :webworker
+    end
+
+    get '/missing_cache' do
+      
+
     end
   end
 end

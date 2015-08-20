@@ -57,25 +57,14 @@ Currently:
 
     > What if command_cache SVG data instead of function calls?
 
-  - The javascript chokes up... possibly because it's iterating over the command cache,
-    and also responding to the websocket requests at the same time?
-
-  - Use webworker??
+  - The javascript chokes up on load of the tree example because it's rendering
+    to the canvas non-stop, which produces a blocking state.
+    To ameliorate the blocking, the Z function could track when it first began
+    executing, and after 40ms, it should set a timout to continue executing...
 
   - Small discrepencies in bigish trtl lines in the tree example
 
 
-  - Hmmm.... why don't I steam the command_cache over websockets?
-    > The reason this is good is that it allows the client to get the data
-      in incriments and then deal with the data, and then wait for more.
-      This way the data never exceedes more than several kilobytes in memory...
-
-  - EFFICIENTLY TRANSFER THE COMMAND_CACHE ARRAY:
-    * embedded in html
-
-    * embedded in html, but split into chunks!!! after each chunk is finished and
-      processed/ deleted, the next chunk is gotten to until all the chunks are
-      deleted!!!!!!!  !!!!!!!!!!!!!!!!!!!!
 
 Finished:
 
