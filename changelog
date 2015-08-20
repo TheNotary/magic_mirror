@@ -26,6 +26,17 @@ future.
   - Think of other popular uses for rendering...
   - secure by making servers listen only on localhost
 
+  - I noticed some missing parts to the tree...
+    > Oh... right when you load the page, you'll get
+        [command_cache] - [changes to command_cache since page load innitated]
+      so a small gap in commands will exist...
+        SOLUTION
+
+      * Architecturally:  add an index number to each message sent over faye
+      * Client-wise: Calculate
+        [Index of first faye message] - [length of the command cache] = [gap]
+      * request the gap from the server on receipt of first message from faye /gap?command_cache=95&first_faye=100
+
 
 
 Currently:
@@ -45,6 +56,26 @@ Currently:
       to 1 function definition plus an invocation...
 
     > What if command_cache SVG data instead of function calls?
+
+  - The javascript chokes up... possibly because it's iterating over the command cache,
+    and also responding to the websocket requests at the same time?
+
+  - Use webworker??
+
+  - Small discrepencies in bigish trtl lines in the tree example
+
+
+  - Hmmm.... why don't I steam the command_cache over websockets?
+    > The reason this is good is that it allows the client to get the data
+      in incriments and then deal with the data, and then wait for more.
+      This way the data never exceedes more than several kilobytes in memory...
+
+  - EFFICIENTLY TRANSFER THE COMMAND_CACHE ARRAY:
+    * embedded in html
+
+    * embedded in html, but split into chunks!!! after each chunk is finished and
+      processed/ deleted, the next chunk is gotten to until all the chunks are
+      deleted!!!!!!!  !!!!!!!!!!!!!!!!!!!!
 
 Finished:
 

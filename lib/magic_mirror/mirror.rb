@@ -71,8 +71,9 @@ module MagicMirror
         Net::HTTP.post_form(uri, :message => message.to_json)
       rescue
         $stderr.puts "failed to send message to faye server and thus webclient"
+        return false
       end
-
+      true
     end
 
     def wait_until_faye_is_up
