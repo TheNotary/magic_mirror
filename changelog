@@ -1,6 +1,4 @@
 ** 0.0.x **
-  TODO:  List off what features you'll be including at some point in the
-future.
 
 	- Test against port in use problem.
 
@@ -15,52 +13,17 @@ future.
       but ppl shouldn't directly eval the strings coming in over httpPost...
 
   - limitation:  Can only have one rendering display at a time *per computer*
-      > Solution: Clean up the output and make ports random
+      > Solution: Make ports random?
+      > Solution: Make 1 port, but make things accessible as /roots/myRoot
 
-  - Bug:  If faye server goes offline for a second, and misses commands, then comes back online,
-    the command_cache variable will be out of sync with that of the server
-      > Solutions:  Javascript Function periodically checks in to see the
-        md5 checksum of server's command_cache and if the browser's is out of date
-        it performs a reset
 
   - Think of other popular uses for rendering...
-  - secure by making servers listen only on localhost
 
-  - I noticed some missing parts to the tree...
-    > Oh... right when you load the page, you'll get
-        [command_cache] - [changes to command_cache since page load innitated]
-      so a small gap in commands will exist...
-        SOLUTION
-
-      * Architecturally:  add an index number to each message sent over faye
-      * Client-wise: Calculate
-        [Index of first faye message] - [length of the command cache] = [gap]
-      * request the gap from the server on receipt of first message from faye /gap?command_cache=95&first_faye=100
+    - secure by making servers listen only on localhost for websockets
 
 
 
 Currently:
-
-  - The tree example takes forever to draw
-    > Cache commands before sending through websockets:
-      cache websockets commands and wait 0.1 seconds between each
-      message sent...
-      ... it's also just a hell of a lot of data...
-
-    > Compress the command_cache: if the commands can be condensed so they
-      take up fewer characters, performance will improve dramatically.
-      *
-      *
-
-    > Dynamically build the tree function in javascript and reduce the command
-      to 1 function definition plus an invocation...
-
-    > What if command_cache SVG data instead of function calls?
-
-  - The javascript chokes up on load of the tree example because it's rendering
-    to the canvas non-stop, which produces a blocking state.
-    To ameliorate the blocking, the Z function could track when it first began
-    executing, and after 40ms, it should set a timout to continue executing...
 
   - Small discrepencies in bigish trtl lines in the tree example
 
