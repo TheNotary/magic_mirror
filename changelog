@@ -16,22 +16,17 @@
       > Solution: Make ports random?
       > Solution: Make 1 port, but make things accessible as /roots/myRoot
 
-
-  - Think of other popular uses for rendering...
-
-    - secure by making servers listen only on localhost for websockets
+  - secure by making servers listen only on localhost for websockets
 
 
 
 Currently:
 
-	- Make tree finish drawing faster
-    - Cache commands before sending through websockets
-			> Need way to buffer commands, yet flush buffer after a time
-			
-
 
 Finished:
+
+	- CORE:  Introduced buffering when system is bogged down, tree draws in 3s
+
 
 ** 0.1.1 **
 

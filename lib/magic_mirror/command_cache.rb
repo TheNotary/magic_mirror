@@ -5,7 +5,7 @@ module MagicMirror
 
     def initialize
       @buffer = []
-      @buffer_flush_point = 2000
+      @buffer_flush_point = 500
       @last_command_at = Time.now
 
       @mutex = Mutex.new
@@ -16,7 +16,7 @@ module MagicMirror
             MagicMirror.command_cache.transmit_buffer!
           }
           Thread.stop
-          sleep 1
+          sleep 0.2
         end
       }
 
@@ -27,7 +27,7 @@ module MagicMirror
       @buffer << value
 
       transmit_buffer_if_ripe
-      queue_buffer_to_be_transmitted if @buffer.length > 0 and @buffer.length < 5
+      queue_buffer_to_be_transmitted
 
       super
     end
@@ -84,7 +84,7 @@ module MagicMirror
     # This method goes wrong because it can fire at the same time
     # magic_mirror.speak_into may be firing....
     def queue_buffer_to_be_transmitted
-      @timeout_thread.wakeup
+      @timeout_thread.wakeup if @timeout_thread.status == "sleep"
     end
 
     def needs_flush?
