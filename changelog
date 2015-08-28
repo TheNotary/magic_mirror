@@ -2,6 +2,8 @@
 
 	- Test against port in use problem.
 
+	- Generally add tests... consider using trtl as an integration test subject...
+
   - How do you tell the host gem to just 'listen for commands' and idle there?
     > Call @magic_mirror.gaze_into to start event machine,
       create a defered faye client,
