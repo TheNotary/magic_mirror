@@ -25,8 +25,10 @@
 
 Currently:
 
-  - Small discrepencies in bigish trtl lines in the tree example
-
+	- Make tree finish drawing faster
+    - Cache commands before sending through websockets
+			> Need way to buffer commands, yet flush buffer after a time
+			
 
 
 Finished:

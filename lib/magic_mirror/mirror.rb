@@ -69,8 +69,9 @@ module MagicMirror
       uri = URI.parse("http://localhost:#{FAYE_PORT}/faye")
       begin
         Net::HTTP.post_form(uri, :message => message.to_json)
-      rescue
+      rescue Exception => e
         $stderr.puts "failed to send message to faye server and thus webclient"
+        $stderr.puts e.message
         return false
       end
       true
